@@ -60,7 +60,28 @@
   top: 5px;
   left: 5px;
 }
-
+.item-name{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.duration{
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.start-date{
+  font-size: 20px;
+  font-weight: 400;
+}
+.end-date{
+  font-size: 20px;
+  font-weight: 400;
+}
+.starts-in{
+  font-size: 20px;
+  /* margin-bottom: 10px; */
+  font-weight: 400;
+}
 @media (min-width: 768px) {
   .g-b {
     padding: 0.25em 0.75em;

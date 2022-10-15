@@ -1,7 +1,7 @@
 import React from 'react'
 import "./card.css"
 import { atcb_action, atcb_init } from 'add-to-calendar-button';
-function Card({cData}) {
+function Card({cData,val}) {
   const [name, setName] = React.useState("Some event");
   const changeName = e => {
     setName(e.target.value);
@@ -12,10 +12,13 @@ function Card({cData}) {
         cData.map((item)=>
         <div className='card-child'>
           <div className='card-child-child'>
-          <h1> <b>{item.name}</b></h1>
-          <h1>duration : {item.duration/60}mins</h1>
-          <h1>Start Date: {`${item.start_time.substring(0,10)+" "+(parseInt(item.start_time.substring(11,13))+5)+item.start_time.substring(13,16)}`}</h1>
-          <h1>End Date: {`${item.end_time.substring(0,10)+" "+item.end_time.substring(11,16)}`}</h1> <br/>
+          <h1 className='item-name'> <b>{item.name.toUpperCase()}</b></h1>
+          <h1 className='duration'> <b>Duration :</b> {item.duration/60}mins</h1>
+          <h1 className='start-date'> <b>Start Date: </b>{`${new Date(item.start_time).toLocaleString()}`}</h1>
+          <h1 className='end-date'><b>End Date: </b> {`${new Date(item.end_time).toLocaleString()}`}</h1> <br/>
+          {
+            (val=="true")?<h1 className='starts-in'><b>Contest Starts in:</b> {Math.floor((new Date(item.start_time)-new Date())/1000/60/60/24)}days {Math.floor((new Date(item.start_time)-new Date())/1000/60/60%24)}hours {Math.floor((new Date(item.start_time)-new Date())/1000/60%60)}minutes</h1>:""
+          }
           <a href={`${item.url}`} target="_black" className='card-a'><button class="button-54" role="button">visit</button></a>
           <div className='google-btn'>
           <form onSubmit={e => {
@@ -24,8 +27,8 @@ function Card({cData}) {
               name:`${item.name}`,
               startDate:`${item.start_time.substring(0,10)}`,
               endDate: `${item.end_time.substring(0,10)}`,
-              startTime:`${item.start_time.substring(11,16)}`,
-              endTime:`${item.end_time.substring(11,16)}`,
+              startTime:`${new Date(item.start_time).toLocaleString().substring(12,17)}`,
+              endTime:`${new Date(item.end_time).toLocaleString().substring(12,17)}`,
               options: ['Google'],
               timeZone: "Asia/Kolkata",
               iCalFileName: "Reminder-Event",
@@ -35,7 +38,8 @@ function Card({cData}) {
           </form>
           </div>
           </div>
-        </div>)}
+        </div>)
+      }
     </div>
   )
 }

@@ -1,18 +1,21 @@
 import React from 'react'
 import "./navbar.css"
-// import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 function Navbar() {
+  let navigate = useNavigate();
   return (
     <nav>
       <input type="checkbox" id="check"/>
       <label for="check" class="checkbtn">
         <i class="fas fa-bars"></i>
       </label>
-      <label class="logo">Contests Detection</label>
+      <label className="logo" onClick={()=>{
+        navigate('/');
+      }}>Contests Detection</label>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/feedback">Feedback</a></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/contact">Contact</Link></li>
+        <li><Link to="/feedback">Feedback</Link></li>
       </ul>
     </nav>
   )

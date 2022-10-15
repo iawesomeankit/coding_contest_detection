@@ -7,6 +7,8 @@ function Contest() {
     const {contestname} = useParams();
     const [contestData, setContestData] = useState([]);
     const [cData, setCData] = useState([]);
+    const [val, setVal] = useState("");
+
       useEffect(() => {
         fetch(`https://kontests.net/api/v1/${contestname}`)
         .then( res => res.json())
@@ -15,18 +17,21 @@ function Contest() {
         })
       }, []);
     const handlepastClick=(tag)=>{
-      const arr = contestData.filter((item)=> item.in_24_hours===tag)
+      const arr = contestData.filter((item)=> item.in_24_hours===tag && item.status!="CODING")
       setCData(arr);
+      setVal("true");
       console.log(cData);
     }
     const handleliveClick=(tag)=>{
       const arr =  contestData.filter((item)=> item.status===tag)
       setCData(arr);
+      setVal("false");
       console.log(cData);
     }
     const handlefutureClick=(tag)=>{
       const arr = contestData.filter((item)=> item.status===tag)
       setCData(arr);
+      setVal("true");
       console.log(cData);
     }
   return (
@@ -43,7 +48,7 @@ function Contest() {
         future
         </a>
         </div>
-        {(cData.length==0)?<EmptyList/>:<Card cData={cData}/>}
+        {(cData.length==0)?<EmptyList/>:<Card cData={cData} val={val}/>}
     </div>
   )
 }

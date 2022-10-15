@@ -2,6 +2,7 @@ nav{
     background: #181718;
     height: 80px;
     width: 100%;
+    z-index: 1000;
   }
   label.logo{
     /* display: flex; */
@@ -12,6 +13,8 @@ nav{
     line-height: 80px;
     padding: 0 5px;
     font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
   }
   nav ul{
     float: right;
@@ -68,6 +71,7 @@ nav{
       left: -100%;
       text-align: center;
       transition: all .5s;
+      z-index: 1000;
     }
     nav ul li{
       display: block;
