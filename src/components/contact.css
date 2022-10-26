@@ -1,0 +1,53 @@
+.cntc{
+    display: block;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    margin-top: 0px;
+}
+.txttt{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 30px;
+}
+form{
+    align-items: center;
+    text-align: center;
+}
+form label{
+    font-size: 20px;
+    opacity: 70%;
+
+}
+form input{
+    font-size: 20px;
+    height: 35px;
+    width: 400px;
+    margin-top: 7px;
+    margin-bottom: 20px;
+}
+form textarea{
+    height: 150px;
+    width: 400px;
+    margin-top: 7px;
+    margin-bottom: 20px;
+}
+.sub:hover{
+    background: linear-gradient(to left, #8e2de2, #4a00e0);
+    color: white; 
+    border-radius: 25px;
+    cursor: pointer;
+}
+@media (max-width:500px){
+    form input{
+        width: 90%;
+    }
+    form textarea{
+        width: 90%;
+    }
+    .sub{
+        width: 90%;
+    }
+}

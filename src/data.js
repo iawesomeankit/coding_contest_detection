@@ -35,7 +35,7 @@ export const platformList = [
   },
   {
     id: "6",
-    name: "AtCoder",
+    name: "At Coder",
     link:"at_coder",
     url:"https://i.ytimg.com/vi/5KpJ218h9Vk/mqdefault.jpg",
   },

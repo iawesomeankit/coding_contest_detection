@@ -14,7 +14,7 @@ function Navbar() {
       }}>Contests Detection</label>
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
+        <li><Link to="/about">About me</Link></li>
         <li><Link to="/feedback">Feedback</Link></li>
       </ul>
     </nav>
